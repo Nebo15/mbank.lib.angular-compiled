@@ -4,7 +4,8 @@ var gulp = require('gulp'),
     fs = require('fs'),
     runSequence = require('gulp-run-sequence'),
     srcFiles = [
-        '*'
+        '*',
+        '!*.tmp.*'
     ];
 
 var getPackageJson = function () {
