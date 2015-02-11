@@ -12,7 +12,7 @@ var getPackageJson = function () {
 };
 
 gulp.task('add', function(){
-    return gulp.src(srcFiles)
+    return gulp.src(srcFiles, {args: '-f'})
         .pipe(git.add());
 });
 
