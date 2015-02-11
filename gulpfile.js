@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     git = require('gulp-git'),
     bump = require('gulp-bump'),
     fs = require('fs'),
+    runSequence = require('gulp-run-sequence'),
     srcFiles = [
         '*'
     ];
@@ -34,15 +35,17 @@ gulp.task('bump', function(){
 
 gulp.task('tag', function () {
     var pkg = getPackageJson();
-    gulp.task('tag', function(){
-        git.tag(pkg.version, 'New version v.'+pkg.version, function (err) {
-            if (err) throw err;
-        });
+    console.log(pkg.version);
+    git.tag(pkg.version, 'New version v.', function (err) {
+        if (err) throw err;
     });
+
 });
 gulp.task('push-tag', function(){
     git.push('origin', 'master',{args: '--tags'}, function (err) {
         if (err) throw err;
     });
 });
-gulp.task('update-changes', ['add','commit','push','tag','push-tag']);
+gulp.task('update-changes',function (cb) {
+    runSequence('add','bump','commit','push','tag','push-tag', cb);
+});
