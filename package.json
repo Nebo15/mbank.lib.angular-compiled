@@ -1,0 +1,14 @@
+{
+    "name": "mbank.lib.angular-bower",
+    "version": "0.0.1",
+    "dependencies": {
+        "gulp": "^3.8.11"
+    },
+    "devDependencies": {
+        "gulp-git": "^1.0.0"
+    },
+    "engines": {
+        "node": "0.11"
+    }
+}
+
