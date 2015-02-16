@@ -118,6 +118,9 @@ function MbankApi ($http, $log, Base64) {
     function MbankApiService (url) {
         this.url = url;
     }
+    MbankApiService.Utils.uuid = uuid;
+
+    
     MbankApiService.prototype.setCredentials = function (username, password) {
         credentials = Base64.encode(username+':'+password);
     };
