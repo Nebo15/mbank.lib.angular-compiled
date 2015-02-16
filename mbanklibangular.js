@@ -179,7 +179,7 @@ function MbankApi ($http, $log, Base64) {
     MbankApiService.prototype.paymentPay = function (paymentId) {
         paymentId = parseInt(paymentId) || null;
         if (!paymentId) throw new TypeError("Not valid paymentId", paymentId);
-        return this.$$request('payments/'+paymentId+'/pay', true, 'get');
+        return this.$$request('payments/'+paymentId+'/pay', true, 'post');
     };
     MbankApiService.prototype.paymentInfo = function (paymentId) {
         paymentId = parseInt(paymentId) || null;
