@@ -186,6 +186,11 @@ function MbankApi ($http, $log, Base64) {
         if (!paymentId) throw new TypeError("Not valid paymentId", paymentId);
         return this.$$request('payments/'+paymentId, true, 'get');
     };
+    MbankApiService.prototype.paymentUpdate = function (paymentId) {
+        paymentId = parseInt(paymentId) || null;
+        if (!paymentId) throw new TypeError("Not valid paymentId", paymentId);
+        return this.$$request('payments/'+paymentId, true, 'post');
+    };
     MbankApiService.prototype.paymentsHistory = function (page, size) {
         page = parseInt(page);
         size = parseInt(size);
